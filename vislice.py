@@ -4,19 +4,10 @@ import model
 bottle.TEMPLATE_PATH.insert(0, 'U:\\Niki (UVP)\\Repozitorij\\Vislice\\views')
 
 vislice = model.Vislice()
-id_testne_igre= vislice.nova_igra()
-vislice.ugibaj(id_testne_igre, 'A')
 
 @bottle.get('/')
 def index():
     return bottle.template('index.tpl')
-
-@bottle.get('/igra')
-def testna_igra():
-    return bottle.template('igra.tpl',
-    igra = vislice.igre[id_testne_igre][0],
-    id_igre = id_testne_igre,
-    poskus = vislice.igre[id_testne_igre][1])
 
 @bottle.post('/igra/')
 def nova_igra():
@@ -35,6 +26,10 @@ def ugibaj(id_igre):
     crka_za_ugib = bottle.request.forms.getunicode("crka")
     vislice.ugibaj(id_igre, crka_za_ugib)
     bottle.redirect('/igra/{0}/'.format(id_igre))
+
+@bottle.get('/img/<picture>')
+def serve_pictures(picture):
+    return bottle.static_file(picture, root = 'img')
 
 
 bottle.run(reloader=True, debug=True)
