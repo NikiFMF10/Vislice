@@ -97,12 +97,13 @@ class Vislice:
         novo_stanje = igra.ugibaj(crka)
         self.igre[id_igre] = (igra, novo_stanje)
 
-vislice = Vislice()
-moj_id_igre = vislice.nova_igra()
-print(vislice.igre[moj_id_igre])
-vislice.ugibaj(moj_id_igre, 'A')
-print(vislice.igre[moj_id_igre])
-print(vislice.igre)
+
+# vislice = Vislice()
+# moj_id_igre = vislice.nova_igra()
+# print(vislice.igre[moj_id_igre])
+# vislice.ugibaj(moj_id_igre, 'A')
+# print(vislice.igre[moj_id_igre])
+# print(vislice.igre)
 
 
 #print(bazen_besed[:5])
