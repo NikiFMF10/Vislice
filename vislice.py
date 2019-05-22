@@ -32,7 +32,7 @@ def pokazi_igro(id_igre):
 
 @bottle.post('/igra/<id_igre:int>/')
 def ugibaj(id_igre):
-    crka_za_ugib = bottle.request.forms.get("crka")
+    crka_za_ugib = bottle.request.forms.getunicode("crka")
     vislice.ugibaj(id_igre, crka_za_ugib)
     bottle.redirect('/igra/{0}/'.format(id_igre))
 
